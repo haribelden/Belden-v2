@@ -14,21 +14,61 @@
 <%@ page import= "org.apache.poi.xssf.usermodel.XSSFWorkbook"%>
 <%@page import="addresses.Control_And_Instrumentation" %>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Multi Triads 600 or 1000V</title>
-    </head>
-    <body>
-        <table style="border:1;width:100%;height:100%">
-            <tr  style="background-color:#012169;height:20%">
-                <td colspan="3">
- <img src="../Resources/Styling/belden.jpg" alt="Belden-Logo" style="height:80px;width=5px;float:right"/>				</td>
-			</tr>
-            <tr>
-                 
-                 <td style="width:60%;padding-left:100px;padding-bottom:150px;font-size:18px;text-align:left">
+<%@include file="../top.jsp" %>
+ <%@include file= "../pane_pc.jsp" %>
+       
+<div style="height:450px;text-align:left;vertical-align: middle;font-size:18px;font-family: Arial;padding-left: 100px;">
+    <style>
+        input[value="Generate Code"] {
+    background-color:#012169;
+    border-radius: 4px;
+    border:1;
+    border-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 20px;
+    
+    
+   
+}
+label{
+    width: 200px;
+    padding: 10px 20px;
+    border: 1;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family:HelveticaNeueBold;
+}
+
+
+    select {
+    width: 200px;
+    padding: 10px 20px;
+    border: 1;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    font-family: Arial;
+   
+   
+    
+}
+</style>
+
+<div style="width: 20%; float:left; margin-left: 20px;text-align:left;">
+    <br>
+    <label for='Cable type'>Cable Type</label><br><br>
+    <label for='Conductor'>Conductor</label><br><br>
+    <label for='Insulation or Jacket'>Insulation /Jacket</label><br><br>
+    <label for='Insulation Color'>Insulation Color</label><br><br>
+    <label for='Shield'>Shield</label><br><br>
+    <label for='Triads'>No of. Triads</label><br><br>
+    <label for='Jacket Color'>Jacket Color</label><br><br>
+</div>
+<div style="width: 40%; float:left; margin-left: 20px;">
         <%
             Control_And_Instrumentation addr = new Control_And_Instrumentation();
      FileInputStream file = new FileInputStream(new File(addr.MT6or10));
@@ -37,7 +77,7 @@
         %>
               <form action='../CI_MT_6or10'>
                 <%--FOR CABLETYPE--%>
-               <br>Cable Type: <select name='Cable type'>
+                <br><select name='Cable type'>
                 <% XSSFSheet sheet = workbook.getSheetAt(0);
                 Iterator<Row> rowIterator = sheet.iterator();
                 while (rowIterator.hasNext()) 
@@ -66,7 +106,7 @@
                 </select>
             
                 <%--FOR CONDUCTOR--%>
-               <br>Conductor: <select name='Conductor'>
+               <br><select name='Conductor'>
                 <% sheet = workbook.getSheetAt(1);
                 rowIterator = sheet.iterator();
                 while (rowIterator.hasNext()) 
@@ -95,7 +135,7 @@
                 </select>
                 
                  <%--FOR Insulation/Jacket--%>
-               <br>Insulation/Jacket: <select name='Insulation or Jacket'>
+               <br><select name='Insulation or Jacket'>
                 <% sheet = workbook.getSheetAt(2);
                 rowIterator = sheet.iterator();
                 while (rowIterator.hasNext()) 
@@ -124,7 +164,7 @@
                 </select>
                 
                  <%--FOR Insulation Color--%>
-               <br>Insulation Color: <select name='Insulation Color'>
+               <br><select name='Insulation Color'>
                 <% sheet = workbook.getSheetAt(3);
                 rowIterator = sheet.iterator();
                 while (rowIterator.hasNext()) 
@@ -153,7 +193,7 @@
                 </select>
                 
                  <%--FOR Shield--%>
-               <br>Shield: <select name='Shield'>
+               <br><select name='Shield'>
                 <% sheet = workbook.getSheetAt(4);
                 rowIterator = sheet.iterator();
                 while (rowIterator.hasNext()) 
@@ -182,7 +222,7 @@
                 </select>
                 
                  <%--FOR No. Of Triads--%>
-               <br>Number of Triads: <select name='Triads'>
+               <br><select name='Triads'>
                 <% sheet = workbook.getSheetAt(5);
                 rowIterator = sheet.iterator();
                 while (rowIterator.hasNext()) 
@@ -211,7 +251,7 @@
                 </select>
                 
                  <%--FOR Jacket Color--%>
-               <br>Jacket Color: <select name='Jacket Color'>
+               <br><select name='Jacket Color'>
                 <% sheet = workbook.getSheetAt(6);
                 rowIterator = sheet.iterator();
                 while (rowIterator.hasNext()) 
@@ -240,18 +280,9 @@
                 </select>
                     
                 
-                    <br><input type="submit" value="Find Code">
-        </form>
-                </td>
-                        
-           </tr>
-		   <tr  style="background-color:#012169;height:20%">
-                <td colspan="3">
-			</td>
-			</tr>
-		    </table>
-    </body>
-</html>
-                
-            
-                        
+                    <br><input type="submit" value="Generate Code">
+                    </div>
+                <div style="width: 30%; float:left; margin-left: 20px;text-align:right;color:red;">
+                    
+                </div> 
+          <%@include file="../bottom.jsp" %>

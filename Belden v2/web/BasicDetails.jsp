@@ -1,15 +1,14 @@
 
-<html>
-    <head>
-        <title>Basic Details</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <form action="basicDetails">
-            Customer Name:<input type="text" name="customer">
+<%@include file="top.jsp" %>
+ <%@include file= "pane_2.jsp" %>
+                     
+<div style="height:450px;text-align:center;vertical-align: middle;font-size:18px;font-family: Arial;">
+        <form action="basicDetails" style="padding-top: 50px;height:450px;text-align:center;vertical-align: middle;font-size:18px;font-family: Arial;">
+            <br>Customer Name:<input type="text" name="customer">
             <br>Project Name:<input type="text" name="project">
-            <input type="submit" value="submit">
+            <br><input type="submit" value="Submit">
         </form>
-    </body>
-</html>
+   
+           <%@include file="bottom.jsp" %>
+
+

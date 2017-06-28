@@ -21,6 +21,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import addresses.Control_And_Instrumentation;
 import FileWriter.PartCode;
+import addresses.Design;
 
 
 
@@ -43,12 +44,12 @@ public class CI_MC_3or5 extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Multi Core 300 or 500V</title>");            
-            out.println("</head>");
-            out.println("<body>");
+           Design d= new Design();
+           out.println(d.top());
+           out.println(d.side());
+           out.println("<div style=\"height:440px;text-align:center;vertical-align: middle;font-size:18px;font-family: Arial;\">");
+           
+           
             Control_And_Instrumentation addr = new Control_And_Instrumentation();
             try (FileInputStream file = new FileInputStream(new File(addr.MC3or5))) {
                 //Create Workbook instance holding reference to .xlsx file
@@ -290,9 +291,9 @@ public class CI_MC_3or5 extends HttpServlet {
                 }
             
             
-            
-              out.println("</body>");
-            out.println("</html>");
+            out.println(d.bottom());
+                    
+                    
            
         } 
         

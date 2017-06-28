@@ -87,6 +87,7 @@ public class LoginPage extends HttpServlet {
                        // ck2.setMaxAge(60 * 60 * 24);
                         response.addCookie(ck1);
                         response.addCookie(ck2);
+                        response.addCookie(ck3);
                         response.sendRedirect("view0.jsp");
                     }
                     else 
@@ -100,6 +101,7 @@ public class LoginPage extends HttpServlet {
                        // ck2.setMaxAge(60 * 60 * 24);
                         response.addCookie(ck1);
                         response.addCookie(ck2);
+                        response.addCookie(ck3);
                         response.sendRedirect("view1.jsp");
                     }
                     break;
